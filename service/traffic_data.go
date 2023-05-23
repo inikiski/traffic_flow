@@ -2,6 +2,7 @@ package service
 
 import (
 	"github.com/nats-io/nats.go"
+	"traffic_flow/api"
 	"traffic_flow/models"
 )
 
@@ -16,6 +17,8 @@ func SendTrafficData(dispose *models.TrafficDispose) {
 	}
 }
 
-func GetDataByDay() {
-
+func GetDataOneMin() models.TrafficDispose {
+	var o1, o2 models.TrafficOrigin
+	oneMinData := api.FindDataInOneMin(o1, o2)
+	return oneMinData
 }

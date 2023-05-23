@@ -9,7 +9,7 @@ import (
 
 var DB *gorm.DB
 
-func init() {
+func Init() {
 	username := "postgres"   //账号
 	password := "abcd1234"   //密码
 	host := "39.108.214.230" //数据库地址，可以是Ip或者域名
