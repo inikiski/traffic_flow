@@ -7,6 +7,6 @@ type TrafficOrigin struct {
 	Direction    bool `gorm:"column:direction"` //f表示右,t表示左
 }
 
-func (to TrafficOrigin) TableName() string {
+func (to *TrafficOrigin) TableName() string {
 	return "db_traffic"
 }
