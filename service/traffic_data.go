@@ -7,8 +7,8 @@ import (
 
 // 查询当前的车流量
 func GetDataOneMin() models.TrafficDispose {
-	var o1, o2 models.TrafficOrigin
-	oneMinData := api.FindDataInOneMin(o1, o2)
+	var ro, lo models.TrafficOrigin
+	oneMinData := api.FindDataInOneMin(&ro, &lo)
 	api.SendTrafficData(&oneMinData)
 	return oneMinData
 }

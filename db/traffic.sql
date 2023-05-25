@@ -1,4 +1,6 @@
 CREATE TABLE db_traffic ( TIME TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP, entrance_flow INT NOT NULL, tunnel_flow INT NOT NULL, export_flow INT NOT NULL, direction BOOLEAN NOT NULL );
+CREATE TABLE db_traffic_left ( TIME TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP, entrance_flow INT NOT NULL, tunnel_flow INT NOT NULL, export_flow INT NOT NULL );
+CREATE TABLE db_traffic_right ( TIME TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP, entrance_flow INT NOT NULL, tunnel_flow INT NOT NULL, export_flow INT NOT NULL );
 SELECT
 	"db_traffic" COMMENT ON COLUMN db_traffic.direction IS 'false表示右,true表示左';
 SELECT
