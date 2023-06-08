@@ -1,0 +1,9 @@
+/test/
+/go.mod
+/.gitignore
+/go.sum
+/.idea/.gitignore
+/.idea/modules.xml
+/.idea/sqldialects.xml
+/.idea/traffic_flow.iml
+/.idea/vcs.xml
