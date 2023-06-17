@@ -15,3 +15,14 @@ func SendTrafficData(dispose *models.TrafficDispose) {
 		panic("发送错误")
 	}
 }
+
+func SendOriginData(dispose *models.TrafficOrigin) {
+	nc, _ := nats.Connect("nats://39.108.214.230:4222")
+	c, _ := nats.NewEncodedConn(nc, nats.JSON_ENCODER)
+	defer c.Close()
+
+	err := c.Publish("TRAFFIC-FLOW.data.origin", dispose)
+	if err != nil {
+		panic("发送错误")
+	}
+}
