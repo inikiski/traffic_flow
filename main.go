@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"traffic_flow/db"
 	"traffic_flow/service"
+	"traffic_flow/sim"
 )
 
 func main() {
@@ -14,5 +15,6 @@ func main() {
 		return c.String(http.StatusOK, "hello,traffic_flow")
 	})
 	go service.AutoPushEveryMin()
+	go sim.Sensor()
 	go e.Logger.Fatal(e.Start(":8080"))
 }
