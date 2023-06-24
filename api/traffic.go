@@ -15,3 +15,13 @@ func FindDataInOneMin(ro, lo *models.TrafficOrigin) models.TrafficDispose {
 	db.DB.Raw(sql2, utcMinusOneMin).Scan(lo)
 	return utils.MergeLeftRight(ro, lo)
 }
+
+func InsertOri(dir string, ori *models.TrafficOrigin) {
+	var sql string
+	if dir == "left" {
+		sql = "INSERT INTO \"traffic\".\"db_traffic_left\" ( entrance_flow, tunnel_flow, export_flow) VALUES (?, ?, ?);"
+	} else if dir == "right" {
+		sql = "INSERT INTO \"traffic\".\"db_traffic_right\" ( entrance_flow, tunnel_flow, export_flow) VALUES (?, ?, ?);"
+	}
+	db.DB.Raw(sql, &ori.EntranceFlow, &ori.TunnelFlow)
+}

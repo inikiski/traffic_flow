@@ -13,3 +13,12 @@ func GetDataOneMin(e echo.Context) error {
 	api.SendTrafficData(&oneMinData)
 	return e.JSON(200, oneMinData)
 }
+
+func GetSimOriData() {
+	Oridata := api.ReceiveOriData("TRAFFIC-FLOW.data")
+	if Oridata.Direction == true {
+		api.InsertOri("left", Oridata)
+	} else if Oridata.Direction == false {
+		api.InsertOri("right", Oridata)
+	}
+}

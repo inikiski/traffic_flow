@@ -9,6 +9,14 @@ import (
 
 var DB *gorm.DB
 
+type DBConfig struct {
+	Username string `json:"db_username" yaml:"db_username"`
+	Password string `json:"db_password" yaml:"db_password"`
+	Host     string `json:"db_host" yaml:"db_host"`
+	Port     int    `json:"db_port" yaml:"db_port"`
+	Name     string `json:"db_name" yaml:"db_name"`
+}
+
 func Init() {
 	username := "postgres"   //账号
 	password := "abcd1234"   //密码
